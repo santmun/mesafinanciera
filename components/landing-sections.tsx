@@ -36,7 +36,7 @@ export function ProblemSection() {
     )
 }
 
-import { EvervaultCard } from "@/components/ui/evervault-card"
+import { EvervaultCard } from "@/components/ui/evervault-card" // Remove unused import if deleting usage, but user might revert. Keeping for now or removing? Removing to be clean.
 
 export function SolutionSection() {
     return (
@@ -49,33 +49,29 @@ export function SolutionSection() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-                {/* Yes Card with Evervault Effect */}
-                <div className="relative group">
-                    <EvervaultCard className="h-full">
-                        <div className="relative z-10">
-                            <h3 className="text-2xl font-bold mb-5 flex items-center gap-2 text-white">
-                                <span className="text-[#24CC7E]">✓</span> Esto SÍ es
-                            </h3>
-                            <ul className="space-y-3 text-left">
-                                {[
-                                    "Analizar cuánto cuesta realmente tu estilo de vida",
-                                    "Comparar decisiones con números en Excel",
-                                    "Debatir con argumentos, no con opiniones",
-                                    "Aprender finanzas aplicadas a tu día a día"
-                                ].map((item, i) => (
-                                    <li key={i} className="pl-6 relative text-[#A0A0A8]">
-                                        <Check className="absolute left-0 top-1 w-4 h-4 text-[#24CC7E]" />
-                                        <span dangerouslySetInnerHTML={{ __html: item.replace(/estilo de vida|números en Excel|Debatir con argumentos|finanzas aplicadas/g, '<strong>$&</strong>') }} />
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </EvervaultCard>
+                {/* Yes Card - Simplified with Green Border */}
+                <div className="p-10 rounded-3xl bg-[#11121A] border-4 border-[#24CC7E] relative overflow-hidden shadow-[0_0_30px_rgba(36,204,126,0.1)]">
+                    <h3 className="text-2xl font-bold mb-2 flex items-center gap-2 text-white">
+                        <span className="text-[#24CC7E]">✓</span> Esto SÍ es
+                    </h3>
+                    <ul className="space-y-3 text-left">
+                        {[
+                            "Analizar cuánto cuesta realmente tu estilo de vida",
+                            "Comparar decisiones con números en Excel",
+                            "Debatir con argumentos, no con opiniones",
+                            "Aprender finanzas aplicadas a tu día a día"
+                        ].map((item, i) => (
+                            <li key={i} className="pl-6 relative text-[#A0A0A8]">
+                                <Check className="absolute left-0 top-1 w-4 h-4 text-[#24CC7E]" />
+                                <span dangerouslySetInnerHTML={{ __html: item.replace(/estilo de vida|números en Excel|Debatir con argumentos|finanzas aplicadas/g, '<strong>$&</strong>') }} />
+                            </li>
+                        ))}
+                    </ul>
                 </div>
 
-                {/* No Card - Mantener diseño simple o usar Evervault con otro color si se desea, por ahora simple para contraste */}
+                {/* No Card */}
                 <div className="p-10 rounded-3xl bg-[#11121A] border border-white/5 border-t-4 border-t-[#FF4D4D] h-full">
-                    <h3 className="text-2xl font-bold mb-5 flex items-center gap-2">
+                    <h3 className="text-2xl font-bold mb-2 flex items-center gap-2">
                         <span className="text-[#FF4D4D]">✗</span> Esto NO es
                     </h3>
                     <ul className="space-y-3 text-left">
@@ -109,9 +105,10 @@ export function FeaturesSection() {
     return (
         <section className="py-24 container mx-auto px-6 max-w-[1100px]">
             <h2 className="font-poppins font-bold text-[2.5rem] mb-12 text-center">¿Qué encuentras dentro?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {/* Centered grid items */}
+            <div className="flex flex-wrap justify-center gap-5">
                 {features.map((f, i) => (
-                    <div key={i} className="bg-[#11121A] p-8 rounded-[20px] hover:bg-[#181924] transition-colors duration-300 border border-white/5">
+                    <div key={i} className="bg-[#11121A] p-8 rounded-[20px] hover:bg-[#181924] transition-colors duration-300 border border-white/5 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] min-w-[300px]">
                         <f.icon className="w-8 h-8 mb-4 text-[#4d65ff]" />
                         <h3 className="text-xl font-bold mb-2">{f.title}</h3>
                         <p className="text-[#A0A0A8]">{f.desc}</p>
@@ -193,13 +190,13 @@ export function AboutSection() {
                 </div>
                 <div className="flex-[1.5] min-w-[300px]">
                     <h2 className="font-poppins font-bold text-[2.5rem] mb-6">Quién está detrás de esto</h2>
-                    <p className="text-xl text-[#A0A0A8] mb-4">
+                    <p className="text-xl text-[#A0A0A8] mb-2 leading-relaxed">
                         Soy <strong className="text-[#4d65ff] font-semibold">Luis Pa</strong>. Estudio <strong className="text-[#4d65ff] font-semibold">finanzas</strong> y creo contenido sobre el <strong className="text-[#4d65ff] font-semibold">costo real de la vida en México.</strong>
                     </p>
-                    <p className="text-xl text-[#A0A0A8] mb-4">
+                    <p className="text-xl text-[#A0A0A8] mb-2 leading-relaxed">
                         No soy gurú. No prometo riqueza. Hago <strong className="text-[#4d65ff] font-semibold">Excels</strong>, hago <strong className="text-[#4d65ff] font-semibold">cuentas</strong> y comparto lo que aprendo.
                     </p>
-                    <p className="text-xl text-[#A0A0A8] mb-8">
+                    <p className="text-xl text-[#A0A0A8] mb-8 leading-relaxed">
                         Creé <strong className="text-[#4d65ff] font-semibold">La Mesa Financiera</strong> porque me di cuenta de que el contenido de finanzas en México necesita menos motivación y más <strong className="text-[#4d65ff] font-semibold">números.</strong>
                     </p>
 

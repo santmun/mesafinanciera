@@ -1,33 +1,16 @@
 "use client"
 
-import { DotScreenShader } from "@/components/ui/dot-shader-background"
 import { ChevronDown } from "lucide-react"
 
 export function HeroSection() {
     return (
-        <section className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center text-center pt-[80px] pb-[80px]">
-            {/* Fondo animado cubriendo todo */}
-            <div className="absolute inset-0 z-0">
-                <DotScreenShader />
-            </div>
+        <section className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center text-center pt-[80px] pb-[80px] bg-gradient-to-b from-[#05060F] to-[#121212]">
 
-            {/* Gradiente de transición inferior */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#05060F] to-transparent z-0 pointer-events-none" />
-
-            {/* Contenido (z-10 para estar sobre el canvas) */}
+            {/* Contenido */}
             <div className="relative z-10 container mx-auto px-6 max-w-[1100px] flex flex-col items-center">
 
-                {/* Logo */}
-                <div className="mb-8 relative w-32 h-32 md:w-40 md:h-40">
-                    <img
-                        src="https://res.cloudinary.com/db7fnd2u9/image/upload/v1771009487/Copia_de_DESMINTIENDO_BROKERS_48_laadkj.png"
-                        alt="La Mesa Financiera Logo"
-                        className="object-contain w-full h-full drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
-                    />
-                </div>
-
-                {/* Banner dorado */}
-                <div className="inline-block mb-[30px] px-4 py-4 rounded-xl border border-[#D4AF37] bg-[rgba(212,175,55,0.1)] text-white font-medium backdrop-blur-sm">
+                {/* Banner dorado como frase sutil */}
+                <div className="mb-6 text-[#D4AF37] font-medium text-lg tracking-wide uppercase opacity-90">
                     ✨ Meritocracia: creces según lo que das
                 </div>
 
